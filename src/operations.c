@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2023/11/09 19:22:08 by albagar4         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:53:19 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	count_numbers(char *str)
 	return (count);
 }
 
-int	*one_argument(char *string)
+int	*one_argument(char *string, int *size)
 {
 	char	**each_nbr;
 	int		*stack;
@@ -53,6 +53,7 @@ int	*one_argument(char *string)
 		printf("Hay algún valor incorrecto en los argumentos\n");
 		return (NULL);
 	}
+	*size = count_numbers(string);
 	stack = (int *)malloc(count_numbers(string) * sizeof(int));
 	if (!stack)
 		return (NULL);
@@ -62,12 +63,12 @@ int	*one_argument(char *string)
 	while (each_nbr[i_str] != NULL)
 	{
 		stack[i_int++] = ft_atoi((const char *)each_nbr[i_str++]);
-		printf("%i\n", stack[i_int]);
+		printf("%i\n", stack[i_int - 1]);
 	}
 	return (stack);
 }
 
-int	*multiple_arguments(char **str)
+int	*multiple_arguments(char **str, int *size)
 {
 	int	i1;
 	int	i2;
@@ -76,6 +77,7 @@ int	*multiple_arguments(char **str)
 	i1 = 1;
 	while (str[i1] != NULL)
 		i1++;
+	*size = i1 - 1;
 	stack = (int *)malloc(i1 * sizeof(int));
 	if (!stack)
 		return (printf("mala reserva de memoria\n"), NULL);
@@ -84,27 +86,52 @@ int	*multiple_arguments(char **str)
 	while (str[i1] != NULL)
 	{
 		printf("str[i1] == %s\n", str[i1]);
-		printf("stack[i2] == %i\n", stack[i2]);
 		if (ft_strncmp(str[i1], "0", 1) != 0 && (ft_atoi(str[i1]) == 0))
 			return (printf("Argumento no válido\n"), NULL);
 		stack[i2++] = ft_atoi((const char *)str[i1++]);
-		printf("he introducido un valor, %i\n", stack[i2]);
+		printf("he introducido un valor, %i\n", stack[i2 - 1]);
 	}
 	return (stack);
+}
+
+//Dos funciones que checkeen los números, que no haya dobles y que tampoco
+//haya valores no permitidos por int
+int	nbr_checker(int *nbr_array, int size)
+{
+	int	i;
+	int	parse;
+
+	i = 0;
+	parse = 1;
+	while (i <= size)
+	{
+		while (parse <= size)
+		{
+			if (nbr_array[i] == nbr_array[parse])
+				return (-1);
+			parse++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	main(int argc, char	*argv[])
 {
 	int	*stack_a;
+	int	size;
 
+	size = 0;
 	if (argc < 2)
 	{
 		printf("Introduce argumentos\n");
 		return (-1);
 	}
 	if (argc == 2)
-		stack_a = one_argument(argv[1]);
+		stack_a = one_argument(argv[1], &size);
 	if (argc > 2)
-		stack_a = multiple_arguments(argv);
+		stack_a = multiple_arguments(argv, &size);
+	if (nbr_checker(stack_a, size) == -1)
+		return (printf("hay números duplicados\n"), 0);
 	return (0);
 }
