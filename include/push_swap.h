@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2023/11/17 12:10:45 by albagar4         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:17:21 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,12 @@ typedef struct s_stack
 	int				cost_b;
 	struct s_stack	*next;
 }	t_stack;
+
+int		count_numbers(char *str);
+long	*one_argument(char *string, int *size);
+long	*multiple_arguments(char **str, int *size);
+int		nbr_checker(long *nbr_array, int size);
+t_stack	*create_node(long nbr);
+t_stack	*arr_to_list(long *stack, int size);
+int		push_x(t_stack *stack_dst, t_stack *stack_src);
 #endif
