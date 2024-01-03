@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2023/11/23 18:53:09 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:08:08 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,22 +120,23 @@ int	nbr_checker(long *nbr_array, int size)
 	return (0);
 }
 
-int	main(int argc, char	*argv[])
+int	main(void)
 {
-	long	*arr;
-	int		size;
-	t_stack	*stack_a;
+	// long	*arr;
+	// int		size;
+	// t_stack	*stack_a;
+	// t_stack	*stack_b;
 
-	size = 0;
-	if (argc < 2)
-		return (printf("Introduce argumentos\n"), -1);
-	if (argc == 2)
-		arr = one_argument(argv[1], &size);
-	if (argc > 2)
-		arr = multiple_arguments(argv, &size);
-	if (nbr_checker(arr, size) == -1)
-		return (printf("Error\n"), 0);
-	stack_a = arr_to_list(arr, size);
-	push_x(&stack_a, create_node(5));
+	// size = 0;
+	// if (argc < 2)
+	// 	return (printf("Introduce argumentos\n"), -1);
+	// if (argc == 2)
+	// 	arr = one_argument(argv[1], &size);
+	// if (argc > 2)
+	// 	arr = multiple_arguments(argv, &size);
+	// if (nbr_checker(arr, size) == -1)
+	// 	return (printf("Error\n"), 0);
+	// stack_a = arr_to_list(arr, size);
+	checker(create_node(3), create_node(5));
 	return (0);
 }
