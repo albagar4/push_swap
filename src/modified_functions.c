@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:04:07 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/03 12:07:47 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:13:25 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,16 @@
 
 void	stack_add_front(t_stack **stack, t_stack *node)
 {
-	t_stack	*tmp;
-
-	printf("he entrado aquí:)\n");
-	tmp = node;
-	tmp->next = *stack;
-	*stack = tmp;
+	node->next = *stack;
+	*stack = node;
 }
 
 void	del_node(t_stack **stack)
 {
 	t_stack	*actual;
 
-	printf("también he entrado aquí:)\n");
 	if (!stack)
-	{
-		printf("no existe el stack\n");
 		return ;
-	}
 	actual = (*stack)->next;
 	free(*stack);
 	*stack = actual;
@@ -63,34 +55,36 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	}
 }
 
+t_stack	*pop_first(t_stack **stack)
+{
+	t_stack	*excluded;
+
+	excluded = *stack;
+	*stack = (*stack)->next;
+	excluded->next = NULL;
+	return (excluded);
+}
+
 //stack_a = create_node(3), stack_b = create_node(5)
 void	checker(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*a_linked;
-	t_stack	*b_linked;
-
-	a_linked = stack_a;
-	b_linked = stack_b;
 	stack_add_back(&stack_a, create_node(2));
 	stack_add_back(&stack_a, create_node(1));
 	stack_add_back(&stack_b, create_node(4));
 	stack_add_back(&stack_b, create_node(6));
-	del_node(&stack_a->next);
-	stack_add_front(&a_linked, create_node(2));
-	while (a_linked->next)
-	{
-	//	printf("nodo a %i\n", a_linked->value);
-		printf("pos nodo a %i\n", a_linked->pos);
-		a_linked = a_linked->next;
-	}
-	//printf("nodo a %i\n", a_linked->value);
-	printf("pos nodo a %i\n", a_linked->pos);
-	while (b_linked->next)
-	{
-	//	printf("nodo b %i\n", b_linked->value);
-		printf("pos nodo b %i\n", b_linked->pos);
-		b_linked = b_linked->next;
-	}
-	//printf("nodo b %i\n", b_linked->value);
-	printf("pos nodo b %i\n", b_linked->pos);
+	print_stack(stack_a, "stack_a in checker()");
+	print_stack(stack_b, "stack_b in checker()");
+	// print_stack(stack_b, "stack_b in checker()");
+	// push_b(&stack_b, &stack_a);
+	// print_stack(stack_a, "stack_a in checker() after one push_b");
+	// print_stack(stack_b, "stack_b in checker() after one push_b");
+	// push_a(&stack_a, &stack_b);
+	// print_stack(stack_a, "stack_a in checker() after one push_a");
+	// print_stack(stack_b, "stack_b in checker() after one push_a");
+	// printf("\n\n\n");
+	// swap_a(&stack_a);
+	// swap_b(&stack_b);
+	double_swap(&stack_a, &stack_b);
+	print_stack(stack_a, "stack_a after swap_a");
+	print_stack(stack_b, "stack_b after swap_a");
 }

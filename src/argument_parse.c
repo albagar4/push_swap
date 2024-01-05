@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/03 11:08:08 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:53:56 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,11 @@ int	main(void)
 	// if (nbr_checker(arr, size) == -1)
 	// 	return (printf("Error\n"), 0);
 	// stack_a = arr_to_list(arr, size);
-	checker(create_node(3), create_node(5));
+	
+	t_stack	*stack_a = create_node(3);
+	t_stack	*stack_b = create_node(5);
+	checker(stack_a, stack_b);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }
