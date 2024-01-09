@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:38:21 by albagar4          #+#    #+#             */
-/*   Updated: 2023/11/30 17:34:36 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:53:15 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ t_stack	*arr_to_list(long *stack, int size)
 	tmp = list;
 	while (i < size)
 	{
-		printf("%i\n", tmp->value);
 		tmp = next_node(&list, create_node(stack[i]));
 		i++;
 	}

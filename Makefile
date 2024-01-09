@@ -6,7 +6,7 @@
 #    By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 12:29:20 by albagar4          #+#    #+#              #
-#    Updated: 2023/11/30 17:04:34 by albagar4         ###   ########.fr        #
+#    Updated: 2024/01/09 17:27:29 by albagar4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 # FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 INCLUDES = -I . -I include -I $(LIBFT_DIR)
 
-COMMON_SRCS = src/argument_parse.c src/convert_to_list.c src/movements.c src/utils.c src/modified_functions.c
+COMMON_SRCS = src/argument_parse.c src/convert_to_list.c src/movements_1.c src/utils.c src/modified_functions.c src/movements_2.c src/assigning_index.c
 PUSH_SWAP_SRCS = $(COMMON_SRCS)
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 

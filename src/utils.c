@@ -6,24 +6,38 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:55 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/05 15:13:34 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:45:56 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void 	print_stack(t_stack *stack, char *name)
+void	print_stack(t_stack **stack, char *name)
 {
-	t_stack	tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp.next)
+	while (tmp->next)
 	{
-		printf("\t%i\n", tmp.value);
-		tmp = *(tmp.next);
+		printf("\t%i\n", tmp->value);
+		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp.value);
+	printf("\t%i\n\n", tmp->value);
+}
+
+void	print_index(t_stack **stack, char *name)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	printf("%s:\n", name);
+	while (tmp->next)
+	{
+		printf("\t%i\n", tmp->index);
+		tmp = (tmp->next);
+	}
+	printf("\t%i\n\n", tmp->index);
 }
 
 void	print_node(t_stack *stack, char *name)
@@ -36,3 +50,14 @@ void	print_node(t_stack *stack, char *name)
 	printf("%s->cost_b = %i\n", name, stack->cost_b);
 	printf("%s->next = %p\n", name, stack->next);
 }
+
+//stack_a = create_node(3), stack_b = create_node(5)
+// void	checker(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	stack_add_back(&stack_a, create_node(2));
+// 	stack_add_back(&stack_a, create_node(1));
+// 	stack_add_back(&stack_b, create_node(4));
+// 	stack_add_back(&stack_b, create_node(6));
+// 	print_stack(stack_a, "stack_a in checker()");
+// 	print_stack(stack_b, "stack_b in checker()");
+// }

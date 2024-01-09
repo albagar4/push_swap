@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/05 16:53:56 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:57:00 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ long	*multiple_arguments(char **str, int *size)
 		if (ft_strncmp(str[i1], "0", 1) != 0 && (ft_atol(str[i1]) == 0))
 			return (printf("Argumento no válido\n"), NULL);
 		stack[i2++] = ft_atol((const char *)str[i1++]);
-		printf("he introducido un valor, %li\n", stack[i2 - 1]);
 	}
 	return (stack);
 }
@@ -120,28 +119,26 @@ int	nbr_checker(long *nbr_array, int size)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	// long	*arr;
-	// int		size;
-	// t_stack	*stack_a;
+	long	*arr;
+	int		size;
+	t_stack	*stack_a;
 	// t_stack	*stack_b;
 
-	// size = 0;
-	// if (argc < 2)
-	// 	return (printf("Introduce argumentos\n"), -1);
-	// if (argc == 2)
-	// 	arr = one_argument(argv[1], &size);
-	// if (argc > 2)
-	// 	arr = multiple_arguments(argv, &size);
-	// if (nbr_checker(arr, size) == -1)
-	// 	return (printf("Error\n"), 0);
-	// stack_a = arr_to_list(arr, size);
-	
-	t_stack	*stack_a = create_node(3);
-	t_stack	*stack_b = create_node(5);
-	checker(stack_a, stack_b);
-	free(stack_a);
-	free(stack_b);
+	size = 0;
+	if (argc < 2)
+		return (printf("Introduce argumentos\n"), -1);
+	if (argc == 2)
+		arr = one_argument(argv[1], &size);
+	if (argc > 2)
+		arr = multiple_arguments(argv, &size);
+	if (nbr_checker(arr, size) == -1)
+		return (printf("Error\n"), 0);
+	stack_a = arr_to_list(arr, size);
+	print_stack(&stack_a, "valores del stack_a avant");
+	index_assign(&stack_a, size);
+	print_stack(&stack_a, "valores del stack_a");
+	print_index(&stack_a, "índices añadidos");
 	return (0);
 }
