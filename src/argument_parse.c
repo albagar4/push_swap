@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/09 17:57:00 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:53:37 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ long	*one_argument(char *string, int *size)
 	i_int = 0;
 	each_nbr = ft_split(string, ' ');
 	while (each_nbr[i_str] != NULL)
-	{
 		stack[i_int++] = ft_atol((const char *)each_nbr[i_str++]);
-		printf("%li\n", stack[i_int - 1]);
-	}
 	return (stack);
 }
 
@@ -136,9 +133,8 @@ int	main(int argc, char *argv[])
 	if (nbr_checker(arr, size) == -1)
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
-	print_stack(&stack_a, "valores del stack_a avant");
-	index_assign(&stack_a, size);
-	print_stack(&stack_a, "valores del stack_a");
-	print_index(&stack_a, "índices añadidos");
+	print_stack(&stack_a, "stack_a antes del ordenamiento");
+	three_digits_sort(&stack_a);
+	print_stack(&stack_a, "stack_a después del ordenamiento");
 	return (0);
 }

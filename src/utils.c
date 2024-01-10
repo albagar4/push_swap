@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:55 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/09 17:45:56 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:25:17 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ void	print_index(t_stack **stack, char *name)
 		tmp = (tmp->next);
 	}
 	printf("\t%i\n\n", tmp->index);
+}
+
+void	print_pos(t_stack **stack, char *name)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	printf("%s:\n", name);
+	while (tmp->next)
+	{
+		printf("\t%i\n", tmp->pos);
+		tmp = (tmp->next);
+	}
+	printf("\t%i\n\n", tmp->pos);
 }
 
 void	print_node(t_stack *stack, char *name)
