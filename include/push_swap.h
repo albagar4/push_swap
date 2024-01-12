@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/11 12:06:54 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:36:49 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,6 @@ t_stack	*index_keeper(t_stack **stack);
 
 t_stack	*two_digits_sort(t_stack **stack);
 t_stack	*three_digits_sort(t_stack **stack);
+t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size);
+t_stack	*polish_and_restore(t_stack **stack_a, t_stack **stack_b);
 #endif

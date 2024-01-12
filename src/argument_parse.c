@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/11 12:08:30 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:58:58 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,22 @@ int	nbr_checker(long *nbr_array, int size)
 	return (0);
 }
 
+
+t_stack	*init_stack(void)
+{
+	t_stack	*ret;
+	
+	ret = create_node(0);
+	del_node(&ret);
+	return (ret);
+}
+
 int	main(int argc, char *argv[])
 {
 	long	*arr;
 	int		size;
 	t_stack	*stack_a;
-	// t_stack	*stack_b;
+	t_stack	*stack_b;
 
 	size = 0;
 	if (argc < 2)
@@ -134,7 +144,25 @@ int	main(int argc, char *argv[])
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
 	print_stack(&stack_a, "stack_a antes del ordenamiento");
-	three_digits_sort(&stack_a);
-	print_stack(&stack_a, "stack_a después del ordenamiento");
+	// stack_b = init_stack();
+	// print_stack(&stack_b, "primer nodo de stack_b");
+	stack_b = first_push(&stack_a, &stack_b, size);
+	print_stack(&stack_a, "stack_a después del primer pb general");
+	print_stack(&stack_b, "stack_b después de first_push");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_b, &stack_a, "pb\n");
+	// push(&stack_a, &stack_b, "pa\n");
+	// print_stack(&stack_a, "stack_a después del primer pb general");
+	// print_stack(&stack_b, "stack_b después de first_push");
+	// stack_b = polish_and_restore(&stack_a, &stack_b);
+	// print_stack(&stack_a, "stack_a ordenado");
+	// print_index(&stack_a, "indices de stack_a ordenados");
+	// print_stack(&stack_b, "stack_b sin el último nodo");
 	return (0);
 }
