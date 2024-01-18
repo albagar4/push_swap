@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/12 11:58:58 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:05:27 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,26 +143,11 @@ int	main(int argc, char *argv[])
 	if (nbr_checker(arr, size) == -1)
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
-	print_stack(&stack_a, "stack_a antes del ordenamiento");
-	// stack_b = init_stack();
-	// print_stack(&stack_b, "primer nodo de stack_b");
+	index_assign(&stack_a, size);
+	// print_stack(&stack_a, "stack_a antes del ordenamiento");
+	// print_index(&stack_a, "indices de stack_a antes:");
 	stack_b = first_push(&stack_a, &stack_b, size);
-	print_stack(&stack_a, "stack_a después del primer pb general");
-	print_stack(&stack_b, "stack_b después de first_push");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_b, &stack_a, "pb\n");
-	// push(&stack_a, &stack_b, "pa\n");
 	// print_stack(&stack_a, "stack_a después del primer pb general");
-	// print_stack(&stack_b, "stack_b después de first_push");
-	// stack_b = polish_and_restore(&stack_a, &stack_b);
-	// print_stack(&stack_a, "stack_a ordenado");
-	// print_index(&stack_a, "indices de stack_a ordenados");
-	// print_stack(&stack_b, "stack_b sin el último nodo");
+	// print_index(&stack_a, "indices de stack_a después:");
 	return (0);
 }

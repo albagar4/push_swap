@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:03:40 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/11 12:23:33 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:04:00 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,4 @@ int	maximum(int a, int b, int c)
 		return (b);
 	else
 		return (c);
-}
-
-t_stack	*index_keeper(t_stack **stack)
-{
-	static int	first = -1;
-	static int	second = -1;
-	static int	third = -1;
-
-	if (first == -1)
-	{
-		first = (*stack)->index;
-		second = ((*stack)->next)->index;
-		third = (((*stack)->next)->next)->index;
-	}
-	else
-	{
-		(*stack)->index = minimum(first, second, third);
-		((*stack)->next)->index = middle(first, second, third);
-		(((*stack)->next)->next)->index = maximum(first, second, third);
-	}
-	return (*stack);
 }

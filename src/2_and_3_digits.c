@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:04:56 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/11 12:48:41 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:03:44 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,14 @@ t_stack	*two_digits_sort(t_stack **stack)
 
 t_stack	*three_digits_sort(t_stack **stack)
 {
-	index_assign(stack, 3);
-	if ((*stack)->index == 1)
+	int	first;
+	int	second;
+	int	third;
+
+	first = ((*stack)->index);
+	second = (((*stack)->next)->index);
+	third = (((*stack)->next->next)->index);
+	if ((*stack)->index == minimum(first, second, third))
 	{
 		if (((*stack)->next->next)->index > ((*stack)->next)->index)
 			return (*stack);
@@ -30,13 +36,13 @@ t_stack	*three_digits_sort(t_stack **stack)
 	}
 	else
 	{
-		if ((*stack)->index == 3)
+		if ((*stack)->index == maximum(first, second, third))
 		{
-			if (((*stack)->next)->index == 2)
+			if (((*stack)->next)->index == middle(first, second, third))
 				return (rotate(stack, "ra\n"), swap(stack, "sa\n"), *stack);
 			return (rotate(stack, "ra\n"), *stack);
 		}
-		if (((*stack)->next)->index == 1)
+		if (((*stack)->next)->index == minimum(first, second, third))
 			return (swap(stack, "sa\n"), *stack);
 		return (reverse_rotate(stack, "rra\n"), *stack);
 	}
