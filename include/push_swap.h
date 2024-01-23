@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/18 16:04:06 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:00:51 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	swap_swap(t_stack **stack_a, t_stack **stack_b);
 void	rotate_rotate(t_stack **stack_1, t_stack **stack_2);
 void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2);
 
+int		ft_len_list(t_stack **stack);
+void	print_target_pos(t_stack **stack, char *name);
 void	print_stack(t_stack **stack, char *name);
 void	print_index(t_stack **stack, char *name);
 void	print_pos(t_stack **stack, char *name);
@@ -68,4 +70,7 @@ int		maximum(int a, int b, int c);
 t_stack	*two_digits_sort(t_stack **stack);
 t_stack	*three_digits_sort(t_stack **stack);
 t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size);
+
+int		det_diff(t_stack *stack_a, t_stack *stack_b);
+void	determine_target_pos(t_stack **sta, t_stack **stb);
 #endif

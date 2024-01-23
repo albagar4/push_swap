@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/18 16:05:27 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:02:16 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,11 +116,10 @@ int	nbr_checker(long *nbr_array, int size)
 	return (0);
 }
 
-
 t_stack	*init_stack(void)
 {
 	t_stack	*ret;
-	
+
 	ret = create_node(0);
 	del_node(&ret);
 	return (ret);
@@ -144,10 +143,12 @@ int	main(int argc, char *argv[])
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
 	index_assign(&stack_a, size);
-	// print_stack(&stack_a, "stack_a antes del ordenamiento");
-	// print_index(&stack_a, "indices de stack_a antes:");
+	print_stack(&stack_a, "stack_a antes del ordenamiento");
+	print_index(&stack_a, "indices de stack_a :");
 	stack_b = first_push(&stack_a, &stack_b, size);
+	determine_target_pos(&stack_a, &stack_b);
 	// print_stack(&stack_a, "stack_a después del primer pb general");
+	// print_stack(&stack_b, "stack_b después del primer pb general");
 	// print_index(&stack_a, "indices de stack_a después:");
 	return (0);
 }
