@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:01:27 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/23 15:44:44 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:57:04 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	position_control(t_stack **stack)
 	int		i;
 	t_stack	*start;
 
-	i = 1;
+	i = 0;
 	start = *stack;
 	while (*stack)
 	{

@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:55 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/23 17:57:33 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:48:47 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,34 @@ int	ft_len_list(t_stack **stack)
 		aux = aux->next;
 	}
 	return (i);
+}
+
+void	print_cost_a(t_stack **stack, char *name)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	printf("%s:\n", name);
+	while (tmp->next)
+	{
+		printf("\t%i\n", tmp->cost_a);
+		tmp = (tmp->next);
+	}
+	printf("\t%i\n\n", tmp->cost_a);
+}
+
+void	print_cost_b(t_stack **stack, char *name)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	printf("%s:\n", name);
+	while (tmp->next)
+	{
+		printf("\t%i\n", tmp->cost_b);
+		tmp = (tmp->next);
+	}
+	printf("\t%i\n\n", tmp->cost_b);
 }
 
 void	print_target_pos(t_stack **stack, char *name)
