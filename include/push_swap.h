@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/24 15:51:08 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:24:17 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ int		det_diff(t_stack *sta, t_stack *stb, int position);
 void	determine_target_pos(t_stack **sta, t_stack **stb);
 void	get_cost_b(t_stack **stb);
 void	get_cost_a(t_stack **sta, t_stack **stb);
+int		det_init_total_cost(t_stack *stb);
+int		get_cheapest_cost(t_stack **stb);
 #endif

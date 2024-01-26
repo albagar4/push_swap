@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:08:06 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/23 17:53:51 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:12:03 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,23 @@ t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size)
 	}
 	*stack_a = three_digits_sort(stack_a);
 	return (*stack_b);
+}
+
+int	movement_seq(t_stack **sta, t_stack **stb, int pos)
+{
+	t_stack	*start_b;
+
+	start_b = *stb;
+	while ((*stb)->pos != pos)
+		*stb = (*stb)->next;
+	if (((*stb)->cost_b >= 0 && (*stb)->cost_a >= 0)
+		|| ((*stb)->cost_b < 0 && (*stb)->cost_a < 0))
+	{
+		if ((*stb)->cost_b >= 0)
+			return (1);
+		else
+			return (2);
+	}
+	else
+		return (3);
 }
