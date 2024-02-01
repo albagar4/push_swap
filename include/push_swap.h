@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/26 12:24:17 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:45:01 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ int		maximum(int a, int b, int c);
 t_stack	*two_digits_sort(t_stack **stack);
 t_stack	*three_digits_sort(t_stack **stack);
 t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size);
+int		movement_seq(t_stack **stb, int pos);
+void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos);
+void	seq_nbr_2(t_stack **sta, t_stack **stb, int tgt_pos);
+void	seq_nbr_3(t_stack **sta, t_stack **stb, int tgt_pos);
 
 int		det_diff(t_stack *sta, t_stack *stb, int position);
 void	determine_target_pos(t_stack **sta, t_stack **stb);
@@ -79,4 +83,7 @@ void	get_cost_b(t_stack **stb);
 void	get_cost_a(t_stack **sta, t_stack **stb);
 int		det_init_total_cost(t_stack *stb);
 int		get_cheapest_cost(t_stack **stb);
+
+int		keep_cost_a(t_stack **stb, int tgt_pos);
+int		keep_cost_b(t_stack **stb, int tgt_pos);
 #endif

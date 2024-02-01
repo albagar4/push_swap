@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:39 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/26 12:32:08 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:32:51 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	get_cheapest_cost(t_stack **stb)
 			if ((*stb)->cost_b < 0)
 				(*stb)->cost_b = ((*stb)->cost_b) * (-1);
 			if ((*stb)->cost_a < 0)
-				(*stb)->cost_a = ((*stb)->cost_a) * (-1);
+				(*stb)->cost_a *= -1;
 			check_cost = ((*stb)->cost_b + (*stb)->cost_a);
 		}
 		if (check_cost < total_cost)

@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:08:06 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/26 13:12:03 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:31:20 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size)
 	return (*stack_b);
 }
 
-int	movement_seq(t_stack **sta, t_stack **stb, int pos)
+int	movement_seq(t_stack **stb, int pos)
 {
 	t_stack	*start_b;
 
@@ -58,4 +58,94 @@ int	movement_seq(t_stack **sta, t_stack **stb, int pos)
 	}
 	else
 		return (3);
+}
+
+void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos)
+{
+	int		cost_a;
+	int		cost_b;
+
+	cost_a = keep_cost_a(stb, tgt_pos);
+	printf("cost_a es %i\n", cost_a);
+	cost_b = keep_cost_b(stb, tgt_pos);
+	printf("cost_b es %i\n", cost_b);
+	if (cost_b >= cost_a)
+	{
+		while ((cost_b - cost_a) > 0)
+		{
+			rotate(stb, "rb\n");
+			cost_b--;
+		}
+	}
+	else
+	{
+		while ((cost_a - cost_b) > 0)
+		{
+			rotate(sta, "ra\n");
+			cost_a--;
+		}
+	}
+	while (cost_a-- > 0 || cost_b-- > 0)
+	{
+		printf("cost_a es %i\n", cost_a);
+		printf("cost_b es %i\n", cost_b);
+		rotate_rotate(sta, stb);
+	}
+	push(sta, stb, "pa\n");
+}
+
+void	seq_nbr_2(t_stack **sta, t_stack **stb, int tgt_pos)
+{
+	int		cost_a;
+	int		cost_b;
+
+	cost_a = keep_cost_a(stb, tgt_pos);
+	cost_b = keep_cost_b(stb, tgt_pos);
+	if (cost_b <= cost_a)
+	{
+		while ((cost_b - cost_a) < 0)
+		{
+			reverse_rotate(stb, "rrb\n");
+			cost_b++;
+		}
+	}
+	else
+	{
+		while ((cost_a - cost_b) < 0)
+		{
+			reverse_rotate(sta, "rra\n");
+			cost_a++;
+		}
+	}
+	while (cost_a++ < 0 || cost_b++ < 0)
+		reverse_rotate_rotate(sta, stb);
+	push(sta, stb, "pa\n");
+}
+
+void	seq_nbr_3(t_stack **sta, t_stack **stb, int tgt_pos)
+{
+	int		cost_a;
+	int		cost_b;
+
+	cost_a = keep_cost_a(stb, tgt_pos);
+	cost_b = keep_cost_b(stb, tgt_pos);
+	while (cost_b > 0 || cost_a < 0)
+	{
+		if (cost_b > 0)
+			rotate(stb, "rb\n");
+		if (cost_a < 0)
+			reverse_rotate(sta, "rra\n");
+		cost_b--;
+		cost_a++;
+	}
+	while (cost_b < 0 || cost_a > 0)
+	{
+		if (cost_a > 0)
+			rotate(sta, "ra\n");
+		if (cost_b < 0)
+			reverse_rotate(stb, "rrb\n");
+		cost_b++;
+		cost_a--;
+	}
+	push(sta, stb, "pa\n");
 }

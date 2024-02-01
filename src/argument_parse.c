@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/26 12:37:32 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:29:20 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,29 +125,64 @@ t_stack	*init_stack(void)
 	return (ret);
 }
 
-int	main(int argc, char *argv[])
-{
-	long	*arr;
-	int		size;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+// int	main(int argc, char *argv[])
+// {
+// 	long	*arr;
+// 	int		size;
+// 	int		nbr;
+// 	t_stack	*stack_a;
+// 	t_stack	*stack_b;
 
-	size = 0;
-	if (argc < 2)
-		return (printf("Introduce argumentos\n"), -1);
-	if (argc == 2)
-		arr = one_argument(argv[1], &size);
-	if (argc > 2)
-		arr = multiple_arguments(argv, &size);
-	if (nbr_checker(arr, size) == -1)
-		return (printf("Error\n"), 0);
-	stack_a = arr_to_list(arr, size);
-	index_assign(&stack_a, size);
-	stack_b = first_push(&stack_a, &stack_b, size);
-	print_stack(&stack_b, "stack_b después del primer pb general");
-	determine_target_pos(&stack_a, &stack_b);
-	get_cost_b(&stack_b);
-	get_cost_a(&stack_a, &stack_b);
-	size = get_cheapest_cost(&stack_b);
+// 	size = 0;
+// 	if (argc < 2)
+// 		return (printf("Introduce argumentos\n"), -1);
+// 	if (argc == 2)
+// 		arr = one_argument(argv[1], &size);
+// 	if (argc > 2)
+// 		arr = multiple_arguments(argv, &size);
+// 	if (nbr_checker(arr, size) == -1)
+// 		return (printf("Error\n"), 0);
+// 	stack_a = arr_to_list(arr, size);
+// 	index_assign(&stack_a, size);
+// 	stack_b = first_push(&stack_a, &stack_b, size);
+// 	print_stack(&stack_b, "stack_b después del primer pb general");
+// 	print_stack(&stack_a, "stack_a después del primer pb general");
+// 	while (stack_b->next)
+// 	{
+// 		determine_target_pos(&stack_a, &stack_b);
+// 		get_cost_b(&stack_b);
+// 		get_cost_a(&stack_a, &stack_b);
+// 		size = get_cheapest_cost(&stack_b);
+// 		nbr = movement_seq(&stack_b, size);
+// 		if (nbr == 1)
+// 			seq_nbr_1(&stack_a, &stack_b, size);
+// 		if (nbr == 2)
+// 			seq_nbr_2(&stack_a, &stack_b, size);
+// 		if (nbr == 3)
+// 			seq_nbr_3(&stack_a, &stack_b, size);
+// 		print_stack(&stack_b, "stack_b en el loop");
+// 		print_stack(&stack_a, "stack_a en el loop");
+// 	}
+// 	print_stack(&stack_b, "stack_b despues del loop");
+// 	print_stack(&stack_a, "stack_a despues del loop");
+// 	return (0);
+// }
+
+int	main(void)
+{
+	t_stack	*sta;
+	t_stack	*stb;
+	// int		tgt_pos;
+	// int		nbr;
+
+	sta = create_node(4);
+	stb = create_node(3);
+	sta = next_node(&sta, create_node(2));
+	sta = next_node(&sta, create_node(6));
+	stb = next_node(&stb, create_node(7));
+	stb = next_node(&stb, create_node(5));
+	stb = next_node(&stb, create_node(1));
+	print_stack(&sta, "stack_a");
+	print_stack(&stb, "stack_b");
 	return (0);
 }
