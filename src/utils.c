@@ -6,11 +6,22 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:50:55 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/24 15:48:47 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:06:45 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	cal_abs(int nbr)
+{
+	int	abs;
+
+	if (nbr >= 0)
+		abs = nbr;
+	else
+		abs = (nbr * (-1));
+	return (abs);
+}
 
 int	ft_len_list(t_stack **stack)
 {
@@ -33,12 +44,11 @@ void	print_cost_a(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->cost_a);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->cost_a);
 }
 
 void	print_cost_b(t_stack **stack, char *name)
@@ -47,12 +57,11 @@ void	print_cost_b(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->cost_b);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->cost_b);
 }
 
 void	print_target_pos(t_stack **stack, char *name)
@@ -61,12 +70,11 @@ void	print_target_pos(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->target_pos);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->target_pos);
 }
 
 void	print_stack(t_stack **stack, char *name)
@@ -75,12 +83,11 @@ void	print_stack(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->value);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->value);
 }
 
 void	print_index(t_stack **stack, char *name)
@@ -89,12 +96,11 @@ void	print_index(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->index);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->index);
 }
 
 void	print_pos(t_stack **stack, char *name)
@@ -103,12 +109,11 @@ void	print_pos(t_stack **stack, char *name)
 
 	tmp = *stack;
 	printf("%s:\n", name);
-	while (tmp->next)
+	while (tmp)
 	{
 		printf("\t%i\n", tmp->pos);
 		tmp = (tmp->next);
 	}
-	printf("\t%i\n\n", tmp->pos);
 }
 
 void	print_node(t_stack *stack, char *name)

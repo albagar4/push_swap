@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:54:31 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/25 16:18:19 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:18:46 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_strlen(const char *str)
 	while (str[count])
 		count++;
 	return (count);
-}	
+}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

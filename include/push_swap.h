@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/01 15:45:01 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:39:00 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	swap_swap(t_stack **stack_a, t_stack **stack_b);
 void	rotate_rotate(t_stack **stack_1, t_stack **stack_2);
 void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2);
 
+int		cal_abs(int nbr);
 int		ft_len_list(t_stack **stack);
 void	print_cost_a(t_stack **stack, char *name);
 void	print_cost_b(t_stack **stack, char *name);
@@ -77,13 +78,17 @@ void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos);
 void	seq_nbr_2(t_stack **sta, t_stack **stb, int tgt_pos);
 void	seq_nbr_3(t_stack **sta, t_stack **stb, int tgt_pos);
 
-int		det_diff(t_stack *sta, t_stack *stb, int position);
+int		compute_target_pos(t_stack *sta, t_stack *stb);
 void	determine_target_pos(t_stack **sta, t_stack **stb);
 void	get_cost_b(t_stack **stb);
 void	get_cost_a(t_stack **sta, t_stack **stb);
 int		det_init_total_cost(t_stack *stb);
+int		giving_pos(t_stack *stb, int total_cost);
 int		get_cheapest_cost(t_stack **stb);
 
 int		keep_cost_a(t_stack **stb, int tgt_pos);
 int		keep_cost_b(t_stack **stb, int tgt_pos);
+
+void	final_movements(t_stack **stack_a, int size);
+void	more_than_three(t_stack **stack_a, int size);
 #endif

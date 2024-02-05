@@ -6,56 +6,41 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:12:03 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/24 15:05:53 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:54:01 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	det_diff(t_stack *sta, t_stack *stb, int position)
+int	compute_target_pos(t_stack *sta, t_stack *stb)
 {
+	int	res;
 	int	diff;
 
-	while (stb && stb->pos < position)
-		stb = stb->next;
-	while (1)
+	diff = INT32_MAX;
+	res = 0;
+	while (sta)
 	{
-		if ((sta->index) > (stb->index))
+		if (((sta->index) > (stb->index))
+			&& ((sta->index) - (stb->index)) < diff)
 		{
-			diff = (sta->index) - (stb->index);
-			break ;
+			diff = sta->index - stb->index;
+			res = sta->pos;
 		}
 		sta = sta->next;
 	}
-	return (diff);
+	return (res);
 }
 
 void	determine_target_pos(t_stack **sta, t_stack **stb)
 {
-	int		diff;
-	int		pos;
-	t_stack	*start_a;
 	t_stack	*start_b;
 
 	position_control(sta);
-	start_a = *sta;
 	start_b = *stb;
-	pos = (*sta)->pos;
 	while (*stb)
 	{
-		diff = det_diff(*sta, *stb, (*stb)->pos);
-		while (*sta)
-		{
-			if ((((*sta)->index) > ((*stb)->index))
-				&& (((*sta)->index) - ((*stb)->index)) < diff)
-			{
-				diff = (*sta)->index - (*stb)->index;
-				pos = (*sta)->pos;
-			}
-			*sta = (*sta)->next;
-		}
-		*sta = start_a;
-		(*stb)->target_pos = pos;
+		(*stb)->target_pos = compute_target_pos(*sta, *stb);
 		*stb = (*stb)->next;
 	}
 	*stb = start_b;

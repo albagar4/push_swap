@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:08:06 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/01 16:31:20 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:59:09 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	movement_seq(t_stack **stb, int pos)
 	while ((*stb)->pos != pos)
 		*stb = (*stb)->next;
 	if (((*stb)->cost_b >= 0 && (*stb)->cost_a >= 0)
-		|| ((*stb)->cost_b < 0 && (*stb)->cost_a < 0))
+		|| ((*stb)->cost_b <= 0 && (*stb)->cost_a <= 0))
 	{
-		if ((*stb)->cost_b >= 0)
+		if ((*stb)->cost_b >= 0 && (*stb)->cost_a >= 0)
 			return (1);
 		else
 			return (2);
@@ -66,9 +66,7 @@ void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos)
 	int		cost_b;
 
 	cost_a = keep_cost_a(stb, tgt_pos);
-	printf("cost_a es %i\n", cost_a);
 	cost_b = keep_cost_b(stb, tgt_pos);
-	printf("cost_b es %i\n", cost_b);
 	if (cost_b >= cost_a)
 	{
 		while ((cost_b - cost_a) > 0)
@@ -86,11 +84,7 @@ void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos)
 		}
 	}
 	while (cost_a-- > 0 || cost_b-- > 0)
-	{
-		printf("cost_a es %i\n", cost_a);
-		printf("cost_b es %i\n", cost_b);
 		rotate_rotate(sta, stb);
-	}
 	push(sta, stb, "pa\n");
 }
 

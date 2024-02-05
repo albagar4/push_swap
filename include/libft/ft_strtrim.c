@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:42:44 by albagar4          #+#    #+#             */
-/*   Updated: 2023/05/03 13:13:21 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:19:10 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	ft_strlenend(char const *global, char const *erased)
 				i--;
 				break ;
 			}
-		j++;
+			j++;
 		}
 		if (j == (int)ft_strlen((char *)erased))
 			return (i);
