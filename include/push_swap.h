@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/05 20:39:00 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/07 19:36:00 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		count_numbers(char *str);
 long	*one_argument(char *string, int *size);
 long	*multiple_arguments(char **str, int *size);
 int		nbr_checker(long *nbr_array, int size);
+t_stack	*init_stack(void);
 
 t_stack	*create_node(long nbr);
 t_stack	*arr_to_list(long *stack, int size);
@@ -90,5 +91,5 @@ int		keep_cost_a(t_stack **stb, int tgt_pos);
 int		keep_cost_b(t_stack **stb, int tgt_pos);
 
 void	final_movements(t_stack **stack_a, int size);
-void	more_than_three(t_stack **stack_a, int size);
+t_stack	*more_than_three(t_stack *stack_a, int size);
 #endif

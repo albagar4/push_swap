@@ -11,6 +11,9 @@
 		"unordered_map": "c",
 		"utility": "c",
 		"vector": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"algorithm": "c",
+		"limits": "c",
+		"ratio": "c"
 	}
 }

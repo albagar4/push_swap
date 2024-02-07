@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/05 20:39:42 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:02:28 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ int	nbr_checker(long *nbr_array, int size)
 	int	parse;
 
 	i = 0;
-	parse = 1;
 	while (i <= size)
 	{
+		parse = i + 1;
 		while (parse <= size)
 		{
 			if (nbr_array[i] == nbr_array[parse])
@@ -107,7 +107,7 @@ int	nbr_checker(long *nbr_array, int size)
 		i++;
 	}
 	i = 0;
-	while (nbr_array[i] < size)
+	while (i <= size)
 	{
 		if (nbr_array[i] < INT32_MIN || nbr_array[i] > INT32_MAX)
 			return (printf("valor no aceptado %li\n", nbr_array[i]), -1);
@@ -129,9 +129,7 @@ int	main(int argc, char *argv[])
 {
 	long	*arr;
 	int		size;
-	// int		cheapest;
 	t_stack	*stack_a;
-	// t_stack	*stack_b;
 
 	size = 0;
 	if (argc < 2)
@@ -143,28 +141,15 @@ int	main(int argc, char *argv[])
 	if (nbr_checker(arr, size) == -1)
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
-	more_than_three(&stack_a, size);
-	// index_assign(&stack_a, size);
-	// stack_b = first_push(&stack_a, &stack_b, size);
-	// print_stack(&stack_b, "stack_b después del primer pb general");
-	// print_stack(&stack_a, "stack_a después del primer pb general");
-	// while (stack_b)
-	// {
-	// 	position_control(&stack_b);
-	// 	determine_target_pos(&stack_a, &stack_b);
-	// 	get_cost_b(&stack_b);
-	// 	get_cost_a(&stack_a, &stack_b);
-	// 	cheapest = get_cheapest_cost(&stack_b);
-	// 	size = movement_seq(&stack_b, cheapest);
-	// 	if (size == 1)
-	// 		seq_nbr_1(&stack_a, &stack_b, cheapest);
-	// 	else if (size == 2)
-	// 		seq_nbr_2(&stack_a, &stack_b, cheapest);
-	// 	else if (size == 3)
-	// 		seq_nbr_3(&stack_a, &stack_b, cheapest);
-	// 	print_stack(&stack_a, "stack_a");
-	// 	print_stack(&stack_b, "stack_b");
-	// }
+	index_assign(&stack_a, size);
+	// print_stack(&stack_a, "antes del ordenamiento");
+	if (size == 2)
+		stack_a = two_digits_sort(&stack_a);
+	else if (size == 3)
+		stack_a = three_digits_sort(&stack_a);
+	else if (size > 3)
+		stack_a = more_than_three(stack_a, size);
+	// print_stack(&stack_a, "despues del ordenamiento");
 	return (0);
 }
 
