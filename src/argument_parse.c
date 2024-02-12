@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/07 20:02:28 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:43:38 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ long	*one_argument(char *string, int *size)
 
 	if (count_numbers(string) == -1)
 	{
-		printf("Hay algún valor incorrecto en los argumentos\n");
+		printf("Error\n");
 		return (NULL);
 	}
 	*size = count_numbers(string);
@@ -76,13 +76,13 @@ long	*multiple_arguments(char **str, int *size)
 	*size = i1 - 1;
 	stack = (long *)malloc(i1 * sizeof(long));
 	if (!stack)
-		return (printf("mala reserva de memoria\n"), NULL);
+		return (NULL);
 	i1 = 1;
 	i2 = 0;
 	while (str[i1] != NULL)
 	{
 		if (ft_strncmp(str[i1], "0", 1) != 0 && (ft_atol(str[i1]) == 0))
-			return (printf("Argumento no válido\n"), NULL);
+			return (NULL);
 		stack[i2++] = ft_atol((const char *)str[i1++]);
 	}
 	return (stack);
@@ -95,22 +95,22 @@ int	nbr_checker(long *nbr_array, int size)
 	int	parse;
 
 	i = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		parse = i + 1;
-		while (parse <= size)
+		while (parse < size)
 		{
 			if (nbr_array[i] == nbr_array[parse])
-				return (printf("números duplicados %li\n", nbr_array[i]), -1);
+				return (-1);
 			parse++;
 		}
 		i++;
 	}
 	i = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		if (nbr_array[i] < INT32_MIN || nbr_array[i] > INT32_MAX)
-			return (printf("valor no aceptado %li\n", nbr_array[i]), -1);
+			return (-1);
 		i++;
 	}
 	return (0);
@@ -133,12 +133,12 @@ int	main(int argc, char *argv[])
 
 	size = 0;
 	if (argc < 2)
-		return (printf("Introduce argumentos\n"), -1);
+		return (printf("Error\n"), -1);
 	if (argc == 2)
 		arr = one_argument(argv[1], &size);
 	if (argc > 2)
 		arr = multiple_arguments(argv, &size);
-	if (nbr_checker(arr, size) == -1)
+	if (nbr_checker(arr, size) == -1 || arr == NULL)
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
 	index_assign(&stack_a, size);
@@ -152,61 +152,3 @@ int	main(int argc, char *argv[])
 	// print_stack(&stack_a, "despues del ordenamiento");
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	t_stack	*sta;
-// 	t_stack	*stb;
-// 	// int		tgt_pos;
-// 	int		cheapest;
-// 	int		seq;
-
-// 	sta = create_node(4);
-// 	stb = create_node(3);
-// 	stack_add_front(&sta, create_node(2));
-// 	stack_add_front(&sta, create_node(7));
-// 	stack_add_front(&stb, create_node(6));
-// 	stack_add_front(&stb, create_node(5));
-// 	stack_add_front(&stb, create_node(1));
-// 	position_control(&stb);
-// 	position_control(&sta);
-// 	t_stack *tmp_a = sta;
-// 	t_stack *tmp_b = stb;
-// 	while (sta) {
-// 		sta->index = sta->value;
-// 		sta = sta->next;
-// 	}
-// 	while (stb) {
-// 		stb->index = stb->value;
-// 		stb = stb->next;
-// 	}
-// 	sta=tmp_a;
-// 	stb=tmp_b;
-// 	print_stack(&sta, "stack_a");
-// 	print_stack(&stb, "stack_b");
-// 	while (stb)
-// 	{
-// 		position_control(&stb);
-// 		determine_target_pos(&sta, &stb);
-// 		print_target_pos(&stb, "target_pos en stb");
-// 		get_cost_b(&stb);
-// 		get_cost_a(&sta, &stb);
-// 		print_cost_b(&stb, "cost_b en stb");
-// 		print_cost_a(&stb, "cost_a en stb");
-// 		cheapest = get_cheapest_cost(&stb);
-// 		printf("%i es la posicion del cheapest cost\n", cheapest);
-// 		seq = movement_seq(&stb, cheapest);
-// 		printf("%i es seq\n", seq);
-// 		if (seq == 1)
-// 			seq_nbr_1(&sta, &stb, cheapest);
-// 		else if (seq == 2)
-// 			seq_nbr_2(&sta, &stb, cheapest);
-// 		else if (seq == 3)
-// 			seq_nbr_3(&sta, &stb, cheapest);
-// 		// reset_target_pos(&stb);
-// 		print_stack(&sta, "stack_a");
-// 		print_stack(&stb, "stack_b");
-// 	}
-// 	// printf("la seq es %i\n", seq);
-// 	return (0);
-// }

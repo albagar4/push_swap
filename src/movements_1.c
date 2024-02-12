@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:52:15 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/09 16:00:25 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:14:46 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	push(t_stack **stack_a, t_stack **stack_b, char *msg)
 {
-	stack_add_front(stack_a, pop_first(stack_b));
+	t_stack	*popped;
+
+	// print_stack(stack_a, "stack_a antes");
+	// print_stack(stack_b, "stack_b antes");
+	popped = pop_first(stack_b);
+	// print_stack(&popped, "popped");
+	// print_stack(stack_b, "stack_b despues del popped");
+	stack_add_front(stack_a, popped);
 	printf("%s", msg);
+// 	print_stack(stack_a, "stack_a después");
+// 	print_stack(stack_b, "stack_b después");
 }
 
 void	swap(t_stack **stack_a, char *msg)
@@ -23,6 +32,8 @@ void	swap(t_stack **stack_a, char *msg)
 	t_stack	*first_pos;
 	t_stack	*sec_pos;
 
+	if (!(*stack_a) || !(*stack_a)->next)
+		return ;
 	first_pos = pop_first(stack_a);
 	sec_pos = pop_first(stack_a);
 	stack_add_front(stack_a, first_pos);
@@ -37,6 +48,8 @@ void	swap_swap(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*first_pos_b;
 	t_stack	*sec_pos_b;
 
+	if (!(*stack_a) || !(*stack_b) || !(*stack_a)->next || !(*stack_b)->next)
+		return ;
 	first_pos_a = pop_first(stack_a);
 	sec_pos_a = pop_first(stack_a);
 	first_pos_b = pop_first(stack_b);

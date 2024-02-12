@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:22:36 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/07 19:36:28 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:35:01 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	final_movements(t_stack **stack_a, int size)
 		return ;
 	*stack_a = start;
 	if (pos <= size / 2)
-		while (count++ <= pos)
+		while (count++ < pos)
 			rotate(stack_a, "ra\n");
 	else
 		while (count++ < (size - pos))
@@ -60,5 +60,6 @@ t_stack	*more_than_three(t_stack *stack_a, int size)
 			seq_nbr_3(&stack_a, &stack_b, cheapest);
 	}
 	final_movements(&stack_a, size);
+	// print_stack(&stack_a, "final");
 	return (stack_a);
 }
