@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:46:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/12 18:43:38 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:18:29 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ int	count_numbers(char *str)
 	return (count);
 }
 
+void	free_string_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+
 long	*one_argument(char *string, int *size)
 {
 	char	**each_nbr;
@@ -48,10 +58,7 @@ long	*one_argument(char *string, int *size)
 	int		i_int;
 
 	if (count_numbers(string) == -1)
-	{
-		printf("Error\n");
 		return (NULL);
-	}
 	*size = count_numbers(string);
 	stack = (long *)malloc(count_numbers(string) * sizeof(long));
 	if (!stack)
@@ -61,6 +68,7 @@ long	*one_argument(char *string, int *size)
 	each_nbr = ft_split(string, ' ');
 	while (each_nbr[i_str] != NULL)
 		stack[i_int++] = ft_atol((const char *)each_nbr[i_str++]);
+	free_string_array(each_nbr);
 	return (stack);
 }
 
@@ -116,13 +124,15 @@ int	nbr_checker(long *nbr_array, int size)
 	return (0);
 }
 
-t_stack	*init_stack(void)
+void	push_swap(t_stack **stack_a, int size)
 {
-	t_stack	*ret;
-
-	ret = create_node(0);
-	del_node(&ret);
-	return (ret);
+	index_assign(stack_a, size);
+	if (size == 2)
+		*stack_a = two_digits_sort(stack_a);
+	else if (size == 3)
+		*stack_a = three_digits_sort(stack_a);
+	else if (size > 3 && is_sorted(*stack_a) == 1)
+		*stack_a = more_than_three(*stack_a, size);
 }
 
 int	main(int argc, char *argv[])
@@ -133,7 +143,7 @@ int	main(int argc, char *argv[])
 
 	size = 0;
 	if (argc < 2)
-		return (printf("Error\n"), -1);
+		return (0);
 	if (argc == 2)
 		arr = one_argument(argv[1], &size);
 	if (argc > 2)
@@ -141,14 +151,7 @@ int	main(int argc, char *argv[])
 	if (nbr_checker(arr, size) == -1 || arr == NULL)
 		return (printf("Error\n"), 0);
 	stack_a = arr_to_list(arr, size);
-	index_assign(&stack_a, size);
-	// print_stack(&stack_a, "antes del ordenamiento");
-	if (size == 2)
-		stack_a = two_digits_sort(&stack_a);
-	else if (size == 3)
-		stack_a = three_digits_sort(&stack_a);
-	else if (size > 3)
-		stack_a = more_than_three(stack_a, size);
-	// print_stack(&stack_a, "despues del ordenamiento");
+	push_swap(&stack_a, size);
+	free_stack(&stack_a);
 	return (0);
 }
