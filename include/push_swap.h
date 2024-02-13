@@ -48,6 +48,8 @@ void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2);
 
 int		cal_abs(int nbr);
 int		ft_len_list(t_stack **stack);
+int		is_sorted(t_stack *stack);
+void	free_stack(t_stack **stack);
 void	print_cost_a(t_stack **stack, char *name);
 void	print_cost_b(t_stack **stack, char *name);
 void	print_target_pos(t_stack **stack, char *name);
