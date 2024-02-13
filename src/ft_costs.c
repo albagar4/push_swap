@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:39 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/12 17:59:10 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:06:38 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,7 @@ int	giving_pos(t_stack *stb, int total_cost)
 	pos = 0;
 	while (stb)
 	{
-		if ((stb->cost_b >= 0 && stb->cost_a >= 0)
-			|| (stb->cost_b <= 0 && stb->cost_a <= 0))
-		{
-			if (stb->cost_b >= stb->cost_a)
-				check_cost = cal_abs(stb->cost_b);
-			else
-				check_cost = cal_abs(stb->cost_a);
-		}
-		else
-			check_cost = (cal_abs(stb->cost_b) + cal_abs(stb->cost_a));
+		check_cost = (cal_abs(stb->cost_b) + cal_abs(stb->cost_a));
 		if (check_cost < total_cost)
 		{
 			total_cost = check_cost;
