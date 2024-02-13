@@ -8,3 +8,4 @@ checker_Mac
 *.a
 push_swap
 0
+.vscode/
