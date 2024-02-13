@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 20:22:36 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/12 18:35:01 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:18:08 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ t_stack	*more_than_three(t_stack *stack_a, int size)
 	int		cheapest;
 	int		seq;
 
-	index_assign(&stack_a, size);
-	stack_b = init_stack();
+	stack_b = NULL;
 	stack_b = first_push(&stack_a, &stack_b, size);
 	while (stack_b)
 	{
@@ -60,6 +59,6 @@ t_stack	*more_than_three(t_stack *stack_a, int size)
 			seq_nbr_3(&stack_a, &stack_b, cheapest);
 	}
 	final_movements(&stack_a, size);
-	// print_stack(&stack_a, "final");
+	free_stack(&stack_b);
 	return (stack_a);
 }
