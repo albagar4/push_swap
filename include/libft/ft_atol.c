@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:21:38 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/13 16:35:26 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:22:48 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ long	ft_atol(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (str[i + 1] < '0' || str[i + 1] > '9')
+		if (str[i + 1] && (str[i + 1] < '0' || str[i + 1] > '9'))
 			return (-2147483648);
 		result = (result * 10) + (str[i] - '0');
 		i++;
