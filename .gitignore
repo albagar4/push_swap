@@ -4,3 +4,6 @@ pro_checker
 push_swap_test.sh
 traces.txt
 checker_Mac
+*.o
+*.a
+push_swap
