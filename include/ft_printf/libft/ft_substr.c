@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:44:49 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/27 18:25:18 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:31 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[j] = '\0';
 	return (substr);
 }
-
-/*
-int	main(void)
-{
-	char			s[] = "i just want this part #############";
-	unsigned int	start = 5;
-	size_t			len = 10;
-
-	printf("ft_substr create the next substr: %s\n", ft_substr(s, start, len));
-	printf("%d\n", ft_strlen(ft_substr(s, start, len)));
-}
-*/

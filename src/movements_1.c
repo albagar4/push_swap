@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:52:15 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/12 16:14:46 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:38:35 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:38:37 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@ void	push(t_stack **stack_a, t_stack **stack_b, char *msg)
 {
 	t_stack	*popped;
 
-	// print_stack(stack_a, "stack_a antes");
-	// print_stack(stack_b, "stack_b antes");
 	popped = pop_first(stack_b);
-	// print_stack(&popped, "popped");
-	// print_stack(stack_b, "stack_b despues del popped");
 	stack_add_front(stack_a, popped);
-	printf("%s", msg);
-// 	print_stack(stack_a, "stack_a después");
-// 	print_stack(stack_b, "stack_b después");
+	ft_printf("%s", msg);
 }
 
 void	swap(t_stack **stack_a, char *msg)
@@ -38,10 +32,10 @@ void	swap(t_stack **stack_a, char *msg)
 	sec_pos = pop_first(stack_a);
 	stack_add_front(stack_a, first_pos);
 	stack_add_front(stack_a, sec_pos);
-	printf("%s", msg);
+	ft_printf("%s", msg);
 }
 
-void	swap_swap(t_stack **stack_a, t_stack **stack_b)
+void	swap_swap(t_stack **stack_a, t_stack **stack_b, char *msg)
 {
 	t_stack	*first_pos_a;
 	t_stack	*sec_pos_a;
@@ -58,5 +52,5 @@ void	swap_swap(t_stack **stack_a, t_stack **stack_b)
 	stack_add_front(stack_a, sec_pos_a);
 	stack_add_front(stack_b, first_pos_b);
 	stack_add_front(stack_b, sec_pos_b);
-	printf("ss\n");
+	ft_printf("%s", msg);
 }

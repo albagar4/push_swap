@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 18:32:46 by albagar4          #+#    #+#             */
-/*   Updated: 2023/05/11 12:18:38 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	main()
 	if (words)
 	{
 		while (words[++i])
-			printf("%s\n", words[i]);
+			ft_printf("%s\n", words[i]);
 	}
 }
 */

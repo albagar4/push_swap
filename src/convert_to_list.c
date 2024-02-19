@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 12:38:21 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/09 17:53:15 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:37:23 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:37:26 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 //Now we have a long array, and we have to convert it into a link list, in which
-//each node is each number. 
+//each node is each number.
 //It's necessary to create some modified bonus of libft
 t_stack	*create_node(long nbr)
 {
@@ -67,5 +67,7 @@ t_stack	*arr_to_list(long *stack, int size)
 		tmp = next_node(&list, create_node(stack[i]));
 		i++;
 	}
+	(void)list;
+	(void)tmp;
 	return (free(stack), list);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:04:56 by albagar4          #+#    #+#             */
-/*   Updated: 2024/01/18 16:03:44 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:36:48 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:36:54 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,42 @@ t_stack	*three_digits_sort(t_stack **stack)
 			return (swap(stack, "sa\n"), *stack);
 		return (reverse_rotate(stack, "rra\n"), *stack);
 	}
+}
+
+void	smart_rotate(t_stack **stack_a, int index)
+{
+	t_stack	*start;
+	int		pos;
+	int		size;
+
+	size = ft_len_list(stack_a);
+	start = *stack_a;
+	pos = 0;
+	while ((*stack_a)->index != index)
+		*stack_a = (*stack_a)->next;
+	pos = (*stack_a)->pos;
+	*stack_a = start;
+	if (pos <= size / 2)
+		while ((*stack_a)->index != index)
+			rotate(stack_a, "ra\n");
+	else
+		while ((*stack_a)->index != index)
+			reverse_rotate(stack_a, "rra\n");
+}
+
+t_stack	*five_digits_sort(t_stack **stack_a)
+{
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	while ((*stack_a)->index != 1)
+		smart_rotate(stack_a, 1);
+	push(&stack_b, stack_a, "pb\n");
+	while ((*stack_a)->index != 2)
+		smart_rotate(stack_a, 2);
+	push(&stack_b, stack_a, "pb\n");
+	*stack_a = three_digits_sort(stack_a);
+	push(stack_a, &stack_b, "pa\n");
+	push(stack_a, &stack_b, "pa\n");
+	return (*stack_a);
 }

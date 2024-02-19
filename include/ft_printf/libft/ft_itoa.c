@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:19:33 by albagar4          #+#    #+#             */
-/*   Updated: 2023/05/12 13:29:35 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 
 /*int	main(void)
 {
-	printf("ft_itoa devuelve para neg: %s\n", ft_itoa(-1234));
-	printf("ft_itoa devuelve: %s\n", ft_itoa(1234));
+	ft_printf("ft_itoa devuelve para neg: %s\n", ft_itoa(-1234));
+	ft_printf("ft_itoa devuelve: %s\n", ft_itoa(1234));
 	return (0);
 }*/

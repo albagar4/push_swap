@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 10:18:47 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/13 16:28:43 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include "ft_printf/libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -43,14 +44,15 @@ void	push(t_stack **stack_a, t_stack **stack_b, char *msg);
 void	swap(t_stack **stack_a, char *msg);
 void	rotate(t_stack **stack, char *msg);
 void	reverse_rotate(t_stack **stack, char *msg);
-void	swap_swap(t_stack **stack_a, t_stack **stack_b);
-void	rotate_rotate(t_stack **stack_1, t_stack **stack_2);
-void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2);
+void	swap_swap(t_stack **stack_a, t_stack **stack_b, char *msg);
+void	rotate_rotate(t_stack **stack_1, t_stack **stack_2, char *msg);
+void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2, char *msg);
 
 int		cal_abs(int nbr);
 int		ft_len_list(t_stack **stack);
 int		is_sorted(t_stack *stack);
 void	free_stack(t_stack **stack);
+void	del_node(t_stack **stack);
 void	print_cost_a(t_stack **stack, char *name);
 void	print_cost_b(t_stack **stack, char *name);
 void	print_target_pos(t_stack **stack, char *name);
@@ -59,7 +61,6 @@ void	print_index(t_stack **stack, char *name);
 void	print_pos(t_stack **stack, char *name);
 void	print_node(t_stack *stack, char *name);
 
-void	del_node(t_stack **stack);
 void	stack_add_front(t_stack **stack, t_stack *node);
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_prelast(t_stack *stack);
@@ -76,11 +77,14 @@ int		maximum(int a, int b, int c);
 
 t_stack	*two_digits_sort(t_stack **stack);
 t_stack	*three_digits_sort(t_stack **stack);
+t_stack	*five_digits_sort(t_stack **stack_a);
 t_stack	*first_push(t_stack **stack_a, t_stack **stack_b, int size);
 int		movement_seq(t_stack **stb, int pos);
 void	seq_nbr_1(t_stack **sta, t_stack **stb, int tgt_pos);
 void	seq_nbr_2(t_stack **sta, t_stack **stb, int tgt_pos);
 void	seq_nbr_3(t_stack **sta, t_stack **stb, int tgt_pos);
+
+void	seq_3_1st_while(t_stack **sta, t_stack **stb, int *cost_a, int *cost_b);
 
 int		compute_target_pos(t_stack *sta, t_stack *stb);
 void	determine_target_pos(t_stack **sta, t_stack **stb);

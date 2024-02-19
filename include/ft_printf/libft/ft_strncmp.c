@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:59:34 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/25 16:30:35 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	ft_strncmp(s1, s2, n);
 	strncmp(s1, s2, n);
-	printf("ft_strncmp showed: %d\n", ft_strncmp(s1, s2, n));
-	printf("strncmp showed: %d\n", strncmp(s1, s2, n));
+	ft_printf("ft_strncmp showed: %d\n", ft_strncmp(s1, s2, n));
+	ft_printf("strncmp showed: %d\n", strncmp(s1, s2, n));
 }*/

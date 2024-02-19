@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 15:12:39 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/13 14:06:38 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:37:42 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:37:44 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	giving_pos(t_stack *stb, int total_cost)
 		stb = stb->next;
 	}
 	start = stb;
+	(void)start;
 	return (pos);
 }
 

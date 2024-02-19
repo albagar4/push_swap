@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_print_hex_upper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 15:59:31 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/19 17:12:17 by albagar4         ###   ########.fr       */
+/*   Created: 2023/06/20 15:48:14 by albagar4          #+#    #+#             */
+/*   Updated: 2023/06/20 16:45:02 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	ft_toupper(int c)
+int	ft_print_hex_upper(unsigned long long nbr)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
+	char	*base;
+	int		count;
+
+	base = "0123456789ABCDEF";
+	count = 0;
+	if (nbr < 0)
+		return (0);
+	else if (nbr >= 0 && nbr <= 15)
+		count += ft_print_char(base[nbr]);
 	else
-		return (c);
+	{
+		count += ft_print_hex_upper(nbr / 16);
+		count += ft_print_char(base[nbr % 16]);
+	}
+	return (count);
 }
-
-/*int	main(void)
-{
-	int	c;
-
-	c = '0';
-	printf("%c\n", ft_toupper(c));
-}*/

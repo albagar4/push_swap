@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   more_than_3_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 17:12:45 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/19 17:14:58 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:38:14 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:38:16 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../include/push_swap.h"
 
-int	ft_tolower(int c)
+void	seq_3_1st_while(t_stack **sta, t_stack **stb, int *cost_a, int *cost_b)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
-	else
-		return (c);
+	if (*cost_b > 0)
+	{
+		rotate(stb, "rb\n");
+		(*cost_b)--;
+	}
+	if (*cost_a < 0)
+	{
+		reverse_rotate(sta, "rra\n");
+		(*cost_a)++;
+	}
 }

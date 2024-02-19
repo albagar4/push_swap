@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:54:31 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/05 20:18:46 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	int r = strlcat(dst, src, size);
 	int r_f = ft_strlcat(dst_2, src, size);
-	printf("Original: %s -> %i\n", dst, r);
-	printf("Fake: %s -> %i\n", dst_2, r_f);
+	ft_printf("Original: %s -> %i\n", dst, r);
+	ft_printf("Fake: %s -> %i\n", dst_2, r_f);
 	return (0);
 }*/

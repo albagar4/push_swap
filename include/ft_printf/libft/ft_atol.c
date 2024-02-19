@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 17:10:06 by albagar4          #+#    #+#             */
-/*   Updated: 2023/11/23 11:20:45 by albagar4         ###   ########.fr       */
+/*   Created: 2023/11/23 11:21:38 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	negative;
-	int	result;
+	int		i;
+	int		negative;
+	long	result;
 
 	i = 0;
 	negative = 1;
 	result = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -31,20 +30,14 @@ int	ft_atoi(const char *str)
 			negative *= -1;
 		i++;
 	}
+	if (str[i] < '0' || str[i] > '9')
+		return (-2147483649);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (str[i + 1] && (str[i + 1] < '0' || str[i + 1] > '9'))
+			return (-2147483649);
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
 	return (result * negative);
 }
-
-/*int	main(void)
-{
-	char	number[] = "0";
-
-	ft_atoi(number);
-	atoi(number);
-	printf("ft_atoi returned the next int: %d\n", ft_atoi(number));
-	printf("atoi returned the next int: %d\n", atoi(number));
-}*/

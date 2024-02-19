@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 17:15:10 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/25 16:37:25 by albagar4         ###   ########.fr       */
+/*   Created: 2023/04/20 16:33:38 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int	pos;
 
-	i = 0;
-	while (s[i] != '\0')
+	pos = ft_strlen(s);
+	while (pos >= 0)
 	{
-		if ((unsigned char)s[i] == (unsigned char)c)
-			return ((char *)&(s[i]));
-		else
-			i++;
+		if ((char)s[pos] == (char)c)
+			return ((char *)&(s[pos]));
+		pos--;
 	}
-	if ((unsigned char)c == '\0')
-		return ((char *)&s[i]);
-	return (0);
+	return (NULL);
 }
 
 /*int	main(void)
 {
-	char	s[] = "ayuda me están matando";
-	int		c = 'z';
+	char	s[] = "argent dans les sentiments";
+	int	c = 'z';
 
-	ft_strchr(s, c);
-	strchr(s, c);
-	printf("ft_strchr found %c here: %p\n", c, ft_strchr(s, c));
-	printf("strchr found %c here: %p\n", c, strchr(s, c));
-	return (0);
+	ft_strrchr(s, c);
+	strrchr(s, c);
+	ft_printf("ft_strrchr found %c here: %p\n", c, ft_strrchr(s, c));
+	ft_printf("strrchr found %c here: %p\n", c, strrchr(s, c));
 }*/

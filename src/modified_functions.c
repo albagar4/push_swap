@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 17:04:07 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/08 18:37:56 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:38:02 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:38:05 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,10 @@
 
 void	stack_add_front(t_stack **stack, t_stack *node)
 {
+	if (!node)
+		return ;
 	node->next = *stack;
 	*stack = node;
-}
-
-void	del_node(t_stack **stack)
-{
-	t_stack	*actual;
-
-	if (!stack)
-		return ;
-	actual = (*stack)->next;
-	free(*stack);
-	*stack = actual;
-	actual = 0;
 }
 
 t_stack	*stack_prelast(t_stack *stack)
@@ -71,6 +61,8 @@ t_stack	*pop_first(t_stack **stack)
 {
 	t_stack	*excluded;
 
+	if (!(*stack))
+		return (0);
 	excluded = *stack;
 	*stack = (*stack)->next;
 	excluded->next = NULL;

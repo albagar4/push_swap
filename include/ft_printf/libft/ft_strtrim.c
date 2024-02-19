@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:42:44 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/05 20:19:10 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	s1[] = ".-.--.-.-.-.-.--.putain-.-.-.-.-.-.-";
 	char	set[] = ".-";
 
-	printf("La función ft_strtrim devuelve: %s", ft_strtrim(s1, set));
+	ft_printf("La función ft_strtrim devuelve: %s", ft_strtrim(s1, set));
 	return (0);
 }*/

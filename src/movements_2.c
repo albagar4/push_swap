@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 15:22:56 by albagar4          #+#    #+#             */
-/*   Updated: 2024/02/08 18:42:32 by albagar4         ###   ########.fr       */
+/*   Created: 2024/02/15 13:38:43 by albagar4          #+#    #+#             */
+/*   Updated: 2024/02/15 13:38:46 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	rotate(t_stack **stack, char *msg)
 		return ;
 	first_pos = pop_first(stack);
 	stack_add_back(stack, first_pos);
-	printf("%s", msg);
+	ft_printf("%s", msg);
 }
 
-void	rotate_rotate(t_stack **stack_1, t_stack **stack_2)
+void	rotate_rotate(t_stack **stack_1, t_stack **stack_2, char *msg)
 {
 	t_stack	*node1;
 	t_stack	*node2;
@@ -34,7 +34,7 @@ void	rotate_rotate(t_stack **stack_1, t_stack **stack_2)
 	node2 = pop_first(stack_2);
 	stack_add_back(stack_1, node1);
 	stack_add_back(stack_2, node2);
-	printf("rr\n");
+	ft_printf("%s", msg);
 }
 
 void	reverse_rotate(t_stack **stack, char *msg)
@@ -48,12 +48,12 @@ void	reverse_rotate(t_stack **stack, char *msg)
 	prelast = stack_prelast(*stack);
 	stack_add_front(stack, last);
 	prelast->next = NULL;
-	printf("%s", msg);
+	ft_printf("%s", msg);
 }
 
-void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2)
+void	reverse_rotate_rotate(t_stack **stack_1, t_stack **stack_2, char *msg)
 {
 	reverse_rotate(stack_1, "");
 	reverse_rotate(stack_2, "");
-	printf("rrr\n");
+	ft_printf("%s", msg);
 }

@@ -6,7 +6,7 @@
 /*   By: albagar4 <albagar4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:13:19 by albagar4          #+#    #+#             */
-/*   Updated: 2023/04/25 16:33:29 by albagar4         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:14 by albagar4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	ft_memcmp(s1, s2, n);
 	memcmp(s1, s2, n);
-	printf("ft_memcmp returned this: %d\n", ft_memcmp(s1, s2, n));
-	printf("memcmp returned this: %d\n", memcmp(s1, s2, n));
+	ft_printf("ft_memcmp returned this: %d\n", ft_memcmp(s1, s2, n));
+	ft_printf("memcmp returned this: %d\n", memcmp(s1, s2, n));
 }*/
